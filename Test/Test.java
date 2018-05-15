@@ -2,18 +2,13 @@ public class Test {
     public static void main(String[] args) {
 
         Array<Integer> array = new Array<>();
-        for(int i = 0 ; i < 10 ; i++){
-            array.addLast(i);
+
+        ArrayStack<Integer> arrayStack = new ArrayStack<>(10);
+        for(int i=0; i<5; i++){
+            arrayStack.push(i);
+            System.out.println(arrayStack);
         }
-        System.out.println(array);
-
-        array.add(1,100);
-        System.out.println(array);
-
-        array.remove(2);
-        System.out.println(array);
-
-        array.removeElement(5);
-        System.out.println(array);
+        arrayStack.pop();
+        System.out.println(arrayStack);
     }
 }
