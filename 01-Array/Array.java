@@ -12,7 +12,7 @@
  */
 
 
-
+//动态数组
 public class Array<E> {
     private E[] data;
     private int size;   //指向值为空（0）的第一个元素
