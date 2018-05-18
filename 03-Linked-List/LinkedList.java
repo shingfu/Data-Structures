@@ -34,7 +34,7 @@ public class LinkedList<E> {
         }
     }
 
-    private Node dummyHead;    //虚拟头结点
+    private Node dummyHead;    //获取中间值或者根据索引查值，就用此虚拟头结点,否者直接把第一个元素定义为头结点
     private int size;
 
     //构造函数
