@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/02-Stacks-and-Queues" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/03-Linked-List" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/04-Recursion" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/05-Binary-Search-Tree" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
