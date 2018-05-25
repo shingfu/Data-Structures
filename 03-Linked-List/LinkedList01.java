@@ -1,7 +1,7 @@
 /**
         分析动态数组的时间复杂度
         增 ：O(n）      -------------->  如果只对链表头进行操作：O(1)
-        删 ：O(n)       -------------->  如果只对链表头进行操作：O(1)
+        删 ：O(n)       -------------->  如果只对链表头进行操作：O(1)         ========》   栈
         改 ：O(n)       不用改操作
         查 ：O(n)       -------------->  只查链表头的元素：O(1)
 
@@ -162,6 +162,25 @@ public class LinkedList01<E> {
     // 从链表中删除最后一个元素, 返回删除的元素
     public E removeLast(){
         return remove(size - 1);
+    }
+
+
+    // 从链表中删除元素e
+    public void removeElement(E e){
+
+        Node prev = dummyHead;
+        while(prev.next != null){
+            if(prev.next.e.equals(e))
+                break;
+            prev = prev.next;
+        }
+
+        if(prev.next != null){
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+            size --;
+        }
     }
 
     @Override

@@ -3,10 +3,10 @@ public class LinkedListStack<E> implements Stack<E> {
 
 
 
-    private LinkedList<E> linkedList;
+    private LinkedList01<E> linkedList;
 
     public LinkedListStack(){
-        this.linkedList = new LinkedList<>();
+        this.linkedList = new LinkedList01<E>();
     }
 
     @Override
