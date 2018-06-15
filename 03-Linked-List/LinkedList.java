@@ -95,25 +95,6 @@ public class LinkedList<E> {
     }
 
 
-    @Override
-    public String toString(){
-        StringBuilder res = new StringBuilder();
-        res.append("LinkedList: ");
 
-        for(Node cur = head; cur != null ; cur = cur.next)
-            res.append(cur.e + "-->");
-        res.append("NULL");
-        return res.toString();
-    }
 
-    public static void main(String[] args) {
-        LinkedList linkedList = new LinkedList();
-        linkedList.addLast(1);
-        linkedList.addLast(2);
-        linkedList.addLast(3);
-        linkedList.addLast(4);
-        linkedList.addLast(5);
-        System.out.println(linkedList);
-
-    }
 }

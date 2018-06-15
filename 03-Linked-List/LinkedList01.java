@@ -183,14 +183,4 @@ public class LinkedList01<E> {
         }
     }
 
-    @Override
-    public String toString(){
-        StringBuilder res = new StringBuilder();
-        res.append("LinkedList: ");
-
-        for(Node cur = dummyHead.next; cur != null ; cur = cur.next)
-            res.append(cur.e + "-->");
-        res.append("NULL");
-        return res.toString();
-    }
 }

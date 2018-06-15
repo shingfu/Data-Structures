@@ -9,7 +9,7 @@ public class LoopQueue<E> implements Queue<E>{
         data = (E[]) new Object[capacity+1];
         front = 0;
         tail = 0;
-        tail = 0;
+        size = 0;
     }
 
     public LoopQueue(){
@@ -82,32 +82,6 @@ public class LoopQueue<E> implements Queue<E>{
     }
 
 
-    @Override
-    public String toString(){
-        StringBuilder res = new StringBuilder();
-        res.append(String.format("LoopQueue : size:%d , capacity:%d\n",size,getCapacity()));
-        res.append("[");
-        for(int i=front; i!=tail ; i= (i+1)%data.length ){
-            res.append(data[i]);
-            if((i+1)%data.length !=tail)
-                res.append(", ");
-        }
-        res.append("]");
-        return res.toString();
-    }
 
-    public static void main(String[] args){
-
-        LoopQueue<Integer> queue = new LoopQueue<>();
-        for(int i = 0 ; i < 10 ; i ++){
-            queue.enqueue(i);
-            System.out.println(queue);
-
-            if(i % 3 == 2){
-                queue.dequeue();
-                System.out.println(queue);
-            }
-        }
-    }
 
 }

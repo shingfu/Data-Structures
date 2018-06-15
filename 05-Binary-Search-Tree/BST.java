@@ -170,23 +170,12 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
 
     //寻找二分搜索树的最小元素
     public E minimum(){
-        //非递归方法
-        /*
-        Node cur = root;
-        if(root == null)
-            throw new IllegalArgumentException("bst is empty");
-        while(cur.left != null){
-            cur = cur.left;
-        }
-        return cur.e;
-        */
-
         if(size == 0)
             throw new IllegalArgumentException("BST is empty");
 
         return minimum(root).e;
     }
-    //返回以node为根的二分搜索树的最小值所在的节点
+    //返回以nodfe为根的二分搜索树的最小值所在的节点
     private Node minimum(Node node){
         if(node.left == null)
             return node;
@@ -224,7 +213,7 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
     private Node removeMin(Node node){
         if(node.left == null){
             Node rightNode = node.right;
-            node.left = null;
+            node.right = null;
             size -- ;
             return rightNode;
         }

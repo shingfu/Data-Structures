@@ -89,34 +89,6 @@ public class LinkedListQueue<E> implements Queue<E> {
             throw new IllegalArgumentException("Queue is empty.");
         return head.e;
     }
-    @Override
-    public String toString(){
-        StringBuilder res = new StringBuilder();
-        res.append("Queue: front ");
-
-        Node cur = head;
-        while(cur != null) {
-            res.append(cur + "->");
-            cur = cur.next;
-        }
-        res.append("NULL tail");
-        return res.toString();
-    }
-
-    public static void main(String[] args){
-
-        LinkedListQueue<Integer> queue = new LinkedListQueue<>();
-        for(int i = 0 ; i < 10 ; i ++){
-            queue.enqueue(i);
-            System.out.println(queue);
-
-            if(i % 3 == 2){
-                queue.dequeue();
-                System.out.println(queue);
-            }
-        }
-    }
-
 
 
 
