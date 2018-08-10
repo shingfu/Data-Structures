@@ -157,4 +157,7 @@ public class LinkedList02<E> {
     public boolean isEmpty() {
         return (first == null);
     }
+
+
+
 }

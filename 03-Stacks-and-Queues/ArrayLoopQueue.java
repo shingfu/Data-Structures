@@ -1,18 +1,18 @@
-public class LoopQueue<E> implements Queue<E>{
+public class ArrayLoopQueue<E> implements Queue<E>{
     private E[] data;
     private int size;
     private int front;
     private int tail;
 
     //构造函数
-    public LoopQueue(int capacity){
+    public ArrayLoopQueue(int capacity){
         data = (E[]) new Object[capacity+1];
         front = 0;
         tail = 0;
         size = 0;
     }
 
-    public LoopQueue(){
+    public ArrayLoopQueue(){
         this(10);
     }
 

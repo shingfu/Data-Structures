@@ -14,33 +14,33 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
         }
     }
 
-
     private Node root;
     private int size;
-
 
     public BST(){
         root = null;
         size = 0;
     }
 
-
     public int size(){
         return size;
     }
-
 
     public boolean isEmpty(){
         return size == 0;
     }
 
+    /*
+     *
+     * 增
+     *
+     */
 
     // 向二分搜索树中添加新的元素e
     public void add(E e){
         root = add(root ,e);
     }
-    // 向以node为根的二分搜索树中插入元素e，递归算法
-    // 返回插入新节点后二分搜索树的根
+    // 向以node为根的二分搜索树中插入元素e，递归算法     // 返回插入新节点后二分搜索树的根
     private Node add(Node node,E e){
         if(node == null){
             size ++;
@@ -56,7 +56,11 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
         return node;
     }
 
-
+    /*
+     *
+     *  查
+     *
+     */
 
     // 查询元素
     public boolean contains( E e){
@@ -72,9 +76,7 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
             return contains(node.left , e);
         else   //e.compareTo(node.e) > 0
             return contains(node.right ,e);
-
     }
-
 
 
     // 二分搜索树的前序遍历 --- 应用：应用最多
@@ -89,34 +91,7 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
         System.out.println(node.e);
         preOrder(node.left);
         preOrder(node.right);
-
-       /*
-        if(node != null){
-            System.out.println(node.e);
-            preOrder(node.left);
-            preOrder(node.right);
-        }
-        */
     }
-
-
-
-    // 二分搜索树的非递归前序遍历
-    // 利用栈结构（Stack）
-    public void preOrderNR(){
-        Stack<Node> stack = new Stack<Node>();
-        stack.push(root);
-        while(!stack.isEmpty()){
-            Node cur = stack.pop();
-            System.out.println(cur.e);
-
-            if(cur.right != null)
-                stack.push(cur.right);
-            if(cur.left != null)
-                stack.push(cur.left);
-        }
-    }
-
 
 
     // 二分搜索树的中序遍历 --- 应用：排序 等
@@ -127,11 +102,11 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
     public void inOrder(Node node){
         if(node == null)
             return;
+
         inOrder(node.left);
         System.out.println(node.e);
         inOrder(node.right);
     }
-
 
 
     // 二分搜索树的后序遍历 --- 应用：为二分搜索树释放内存（先把节点的孩子节点释放完再释放节点）等
@@ -142,11 +117,27 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
     public void postOrder(Node node){
         if(node == null)
             return;
+
         postOrder(node.left);
         postOrder(node.right);
         System.out.println(node.e);
     }
 
+
+    // 二分搜索树的非递归前序遍历---利用栈结构（Stack）
+    public void preOrderNR(){
+        Stack<Node> stack = new Stack<Node>();
+        stack.push(root);
+        while(!stack.isEmpty()){       //只要栈里面不为空，就把栈里面的节点拿出来输出
+            Node cur = stack.pop();
+            System.out.println(cur.e);
+
+            if(cur.right != null)        //再把拿出来的节点(cur)的左右节点按右左顺序push进栈
+                stack.push(cur.right);
+            if(cur.left != null)
+                stack.push(cur.left);
+        }
+    }
 
 
     // 二分搜索树的层序遍历（广度优先遍历主要用于搜索策略上）
@@ -162,7 +153,6 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
                 queue.add(node.left);
             if(node.right != null)
                 queue.add(node.right);
-
         }
     }
 
@@ -200,40 +190,41 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
         return maximum(node.right);
     }
 
-
+    /*
+     *
+     * 删
+     *
+     */
 
     // 从二分搜索树中删除最小值所在的节点，返回最小值
     public E removeMin(){
-        E ret = minimum();
+        E ret = minimum();                           //minimum函数已经检查了二叉树是否为空
         root = removeMin(root);
         return ret;
     }
-    // 删除掉以node为根的二分搜索树中的最小节点
-    // 返回删除节点后新的二分搜索树的根
+    // 删除掉以node为根的二分搜索树中的最小节点       // 返回删除节点后新的二分搜索树的根
     private Node removeMin(Node node){
-        if(node.left == null){
-            Node rightNode = node.right;
-            node.right = null;
+        if(node.left == null){                     // node.left为空，说明node为最小节点
+            Node rightNode = node.right;           // 不管node.right为不为空，让rightNode指向node.right返回回去就行了
+            node.right = null;                     // node的右指针为空，然后GB回收node
             size -- ;
             return rightNode;
         }
-        node.left = removeMin(node.left);
+        node.left = removeMin(node.left);          //如果左子树还有，就继续
         return node;
     }
 
 
-
     //从二分搜索树中删除最大值所在的节点，返回最大值
     public E removeMax(){
-        E ret = maximum();
+        E ret = maximum();                            //maximum函数已经检查了二叉树是否为空
         root = removeMax(root);
         return ret;
     }
-    // 删除掉以node为根的二分搜索树中的最大节点
-    // 返回删除节点后新的二分搜索树的根
+    // 删除掉以node为根的二分搜索树中的最大节点,返回删除节点后新的二分搜索树的根
     private Node removeMax(Node node){
-        if(node.right == null){
-            Node leftNode = node.left;
+        if(node.right == null){                    // node.right为空，说明node为最大节点
+            Node leftNode = node.left;              // 让leftNode指向node.left，然后局返回leftNode
             node.left = null;
             size -- ;
             return leftNode;
@@ -243,13 +234,11 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
     }
 
 
-
     // 从二分搜索树中删除元素为e的节点
     public void remove(E e){
         root = remove(root, e);
     }
-    // 删除掉以node为根的二分搜索树中值为e的节点, 递归算法
-    // 返回删除节点后新的二分搜索树的根
+    // 删除掉以node为根的二分搜索树中值为e的节点, 递归算法，返回删除节点后新的二分搜索树的根
     private Node remove(Node node, E e){
 
         if( node == null )
@@ -286,7 +275,7 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
             // 用这个节点顶替待删除节点的位置
             Node successor = minimum(node.right);
             successor.right = removeMin(node.right);     //removeMin(node.right) 返回的是删除了后继节点后 新的node.right这歌节点
-            size ++ ;
+            size ++ ;                                     //注意removeMin函数中执行了size--，但实际上最小值并没有删掉，而是替换成了successor,所以要加
             successor.left = node.left;
             node.left = node.right = null;
             size --;
@@ -294,9 +283,6 @@ public class BST<E extends Comparable<E>> {     //类型E必须具有可比较�
             return successor;
         }
     }
-
-
-
 
 
 

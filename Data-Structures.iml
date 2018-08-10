@@ -5,13 +5,14 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/01-Array" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Test" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/02-Stacks-and-Queues" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/03-Linked-List" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/03-Stacks-and-Queues" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/02-Linked-List" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/04-Recursion" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/05-Binary-Search-Tree" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/06-Set-and-Map" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/yy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/07-Heap-and-Priority-Queue" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/04-QueueAndStack" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
