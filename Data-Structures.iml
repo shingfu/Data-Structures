@@ -13,6 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/yy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/07-Heap-and-Priority-Queue" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/04-QueueAndStack" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/08-AVL-Tree" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
