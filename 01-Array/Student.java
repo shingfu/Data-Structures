@@ -16,7 +16,7 @@ public class Student {
     public static void main(String[] args) {
         Array<Student> arr = new Array<>();
         arr.addLast(new Student("yang",100));
-        arr.addLast(new Student("yichao",90));
+        arr.addLast(new Student("yichao",95));
         System.out.println(arr);
     }
 }
